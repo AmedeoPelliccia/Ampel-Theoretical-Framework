@@ -48,11 +48,18 @@ El **Ampel Theoretical Framework** se fundamenta en la creación de modelos mate
 **Ecuaciones Fundamentales Integradas:**
 
 1. **Ecuación de Transferencia Radiativa Acoplada:**
-   
-   \[
-   \frac{\partial I_{\nu}}{\partial s} = j_{\nu} - \alpha_{\nu} I_{\nu} + f(F_{\text{cosm}}, \rho_{\text{dm}}, T, p)
-   \]
-   
+
+   LaTeX
+\[
+\frac{\partial I_{\nu}}{\partial s}
+=
+j_{\nu}
+-
+\alpha_{\nu} I_{\nu}
++
+f\!\left(F_{\mathrm{cosm}}, \rho_{\mathrm{dm}}, T, p\right)
+\] 
+
    - **Descripción:** Esta ecuación describe cómo la intensidad de la radiación (\(I_{\nu}\)) cambia a lo largo de una distancia \(s\), considerando las fuentes de emisión (\(j_{\nu}\)), la absorción (\(\alpha_{\nu}\)), y un término de acoplamiento que incorpora efectos cosmológicos como el flujo de radiación cósmica (\(F_{\text{cosm}}\)), la densidad de materia oscura (\(\rho_{\text{dm}}\)), la temperatura (\(T\)) y la presión (\(p\)).
 
 2. **Ecuación de Conservación de Energía Integrada:**
