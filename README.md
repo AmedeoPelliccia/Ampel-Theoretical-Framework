@@ -1,4 +1,57 @@
 ## 1. **Comprensión del Ampel Theoretical Framework**
+No nos quedemos en el acrónimo:
+
+# **SICO.CA**
+
+## **Sustainable Industrial Competitive Operations — Chained Algorithms**
+
+Lectura controlada:
+
+```yaml
+acronym: SICO.CA
+SICO: Sustainable Industrial Competitive Operations
+CA: Chained Algorithms
+status: controlled_acronym
+doctrine: "No more wars. Regeneration now."
+```
+
+## Significado exacto
+
+**SICO** no significa que la industria actual sea sostenible.
+
+Significa:
+
+> **operaciones industriales competitivas que solo son admisibles si son sostenibles.**
+
+La sostenibilidad no es una etiqueta descriptiva.
+Es una **condición de autorización**.
+
+## Expansión semántica
+
+| Elemento | Significado                                                         |
+| -------- | ------------------------------------------------------------------- |
+| **S**    | Sustainable: no externalización del daño hacia el más debil              |
+| **I**    | Industrial: producción de energía, materiales y sus logísticas              |
+| **C**    | Competitive: mejora sistémica sin guerras, muertes, heridos y destrucción             |
+| **O**    | Operations: ejecución en tiempo casi real, no discurso                             |
+| **CA**   | Chained Algorithms: algoritmos encadenados, auditables, gobernados y entonces extraíbles. Mínerias digitales las complicadas |
+
+## Fórmula del acrónimo
+
+```text
+SICO.CA =
+Sustainable
+Industrial
+Competitive
+Operations
+through
+Chained
+Algorithms
+```
+
+## Línea corta
+
+> **SICO.CA: industry only if sustainable; competition not only if it is generative and regenerative, but: algorithms only if accountable.**
 
 ### 2. **Estructura del Ampel Theoretical Framework**
 
