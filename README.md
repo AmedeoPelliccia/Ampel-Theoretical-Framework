@@ -447,6 +447,34 @@ plt.show()
 
 ## 🧭 Protocolo de Calibración Empírica SICO.CA
 
+## 🔹 Arquitectura de Interdependencias (SICO.CA)
+
+```mermaid
+graph TD
+    C[Cooperación C] --> dI((dI/dt))
+    R[Regulación R] --> dI
+    A[Apoyo A] --> dI
+    A --> dE((dE/dt))
+    U[Despliegue U] --> dE
+    S[Seguridad S] --> dD((dD/dt))
+
+    dI --> I{Integración I_t}
+    dE --> E{Eficacia E_t}
+    dD --> D{Identidad D_t}
+
+    I -- "Término β" --> dE
+    I -- "Peso u" --> dD
+    E -- "Peso w" --> dD
+
+    I -- "- γ" --> dI
+    E -- "- δ" --> dE
+    D -- "- σ" --> dD
+
+    classDef state fill:#e3f2fd,stroke:#1e88e5,stroke-width:2px,color:#000;
+    class I,E,D state;
+```
+
+
 Para operacionalizar el marco en contextos reales (p. ej., despliegue de eIDAS 2.0 en Italia), se propone el siguiente protocolo de ajuste paramétrico:
 
 1. **Recolección de datos base**:
