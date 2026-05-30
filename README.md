@@ -1,9 +1,9 @@
 ---
-document_id: AMPEL-THEORETICAL-FRAMEWORK-SICOCA-002
-title: "Ampel Theoretical Framework — Capa de Límite Físico, Puente Termodinámico y Gobernanza SICO.CA"
-version: "1.0.0"
+document_id: AMPEL-THEORETICAL-FRAMEWORK-SICOCA-003
+title: "Ampel Theoretical Framework — Capa de Límite Físico, Puente Termodinámico, Gobernanza SICO.CA y Validación por Simulación"
+version: "1.1.0"
 status: controlled
-supersedes: AMPEL-THEORETICAL-FRAMEWORK-SICOCA-GR-FLUIDS-001 (v0.2.0)
+supersedes: AMPEL-THEORETICAL-FRAMEWORK-SICOCA-002 (v1.0.0)
 classification: open-theoretical-framework
 author: "Amedeo Pelliccia / AM.PEL — AMPEL Framework"
 language: es
@@ -23,14 +23,24 @@ doctrine:
   - SICO.CA
   - Chained Algorithms
   - "No more wars. Regeneration now."
+figures:
+  - fig_01_temperature_trajectories.png
+  - fig_02_authorization_gate.png
+  - fig_03_late_recovery_hysteresis.png
+  - fig_04_basin_section.png
+data:
+  - scenario_A_regenerative.csv
+  - scenario_B_unsustainability_trap.csv
+  - scenario_C_late_recovery.csv
+  - basin_section.csv
 ---
 
 # Ampel Theoretical Framework
-## Capa de Límite Físico, Puente Termodinámico y Gobernanza SICO.CA
+## Capa de Límite Físico, Puente Termodinámico, Gobernanza SICO.CA y Validación por Simulación
 
 El **Ampel Theoretical Framework** define una arquitectura sistémica en la que la física fundamental fija los límites materiales de la civilización, un **modelo de balance energético** traduce esos límites en magnitudes operativas medibles, y la gobernanza socio-técnica determina si las operaciones industriales permanecen dentro de dichos límites.
 
-A diferencia de la versión `v0.2.0`, esta versión **acopla las tres capas matemáticamente**: las externalidades y la capacidad regenerativa que gobiernan la doctrina `SICO.CA` ya no son entradas libres, sino que se **derivan del balance energético físico** y **retroalimentan** la dinámica socio-técnica.
+`v1.1.0` añade, sobre `v1.0.0`, la **validación por simulación** (§14): cuatro figuras y cuatro conjuntos de datos que ejecutan el modelo de la especificación y confirman su comportamiento, más una **corrección cuantificada del mecanismo de liberación histerética** (§6.5).
 
 El marco conecta tres capas:
 
@@ -38,7 +48,7 @@ El marco conecta tres capas:
 2. **Capa de acoplamiento** — un puente termodinámico que define `X_ext` (externalidad) y `R_cap` (capacidad regenerativa) a partir de flujos físicos.
 3. **Capa socio-técnica y doctrinal** — un sistema dinámico acotado con una **puerta de autorización `SICO.CA` con retardo e histéresis**.
 
-La tesis central permanece, ahora computable:
+La tesis central, ahora computable y validada:
 
 > Las operaciones industriales y algorítmicas solo son admisibles si sus externalidades, **medidas como forzamiento físico neto**, permanecen por debajo de una capacidad regenerativa medible, auditable y gobernada.
 
@@ -81,7 +91,7 @@ doctrine: "No more wars. Regeneration now."
 
 ## 1.1 Diagrama de acoplamiento
 
-A diferencia de la versión anterior, el flujo de información es **cerrado y bidireccional**:
+El flujo de información es **cerrado y bidireccional**:
 
 ```text
                 ┌─────────────────────────────────────────────┐
@@ -114,13 +124,13 @@ A diferencia de la versión anterior, el flujo de información es **cerrado y bi
                                 └──────────► RETROALIMENTACIÓN a L1/L2
 ```
 
-La novedad estructural respecto a `v0.2.0`: la flecha de retorno `E_tech → {Q_anth, R_cap}`. La eficacia tecnológica ya no crece en un vacío; **modifica el sistema físico que la autoriza**.
+La novedad estructural respecto a `v0.2.0`: la flecha de retorno `E_tech → {Q_anth, R_cap}`. La eficacia tecnológica ya no crece en un vacío; **modifica el sistema físico que la autoriza**. La validación de §14 confirma que este bucle es **operativo, no decorativo**.
 
 ## 1.2 Principio de separación de escalas (justifica la corrección del tensor)
 
 La potencia primaria antropogénica agregada es del orden de `~2×10¹³ W`. La radiación solar absorbida por el sistema Tierra es `~1.2×10¹⁷ W`. La contribución de cualquiera de las dos a la **curvatura del espacio-tiempo** (`~Gm/c²r`) es despreciable en decenas de órdenes de magnitud.
 
-**Conclusión operativa:** el término antropogénico **no es una fuente de curvatura** y se elimina de las ecuaciones de campo (corrección respecto a `v0.2.0`). Donde sí es físicamente real es en el **balance energético atmosférico**, comparado contra el desbalance radiativo (escala `~W/m²`). Allí, y solo allí, entra como `Q_anth`.
+**Conclusión operativa:** el término antropogénico **no es una fuente de curvatura** y se elimina de las ecuaciones de campo. Donde sí es físicamente real es en el **balance energético atmosférico**, comparado contra el desbalance radiativo (escala `~W/m²`). Allí, y solo allí, entra como `Q_anth`.
 
 ## 1.3 Estatuto epistémico de cada bloque
 
@@ -132,6 +142,7 @@ La potencia primaria antropogénica agregada es del orden de `~2×10¹³ W`. La 
 | Puente termodinámico (§5)           | Definicional         | Convierte flujos físicos en `X_ext`, `R_cap`. |
 | Puerta SICO.CA (§6)                 | Doctrinal-dinámico   | Acopla L2 con L3.                          |
 | Sistema socio-técnico (§8)          | Dinámica de sistemas | Genera trayectorias institucionales.      |
+| Validación por simulación (§14)     | **Empírico-numérico**| **Confirma el comportamiento del modelo.**|
 | Apéndice A (acoplamientos cosmológicos / materia oscura) | **Especulativo, no validado** | Fenced. Fuera del modelo operativo. |
 
 ---
@@ -144,7 +155,7 @@ $$
 G_{\mu\nu} + \Lambda g_{\mu\nu} = \frac{8\pi G}{c^4}\, T_{\mu\nu}
 $$
 
-**Corrección respecto a `v0.2.0`:** `Λ` aparece **una sola vez**, en el lado geométrico. No se vuelve a contar como término dentro del tensor energía-momento. El doble conteo de la energía oscura queda eliminado.
+`Λ` aparece **una sola vez**, en el lado geométrico. No se vuelve a contar como término dentro del tensor energía-momento. El doble conteo de la energía oscura queda eliminado.
 
 ## 2.1 Descomposición del tensor energía-momento
 
@@ -158,7 +169,7 @@ $$
 | $T_{\mu\nu}^{\mathrm{rad}}$   | Radiación electromagnética y campos radiativos            |
 | $T_{\mu\nu}^{\mathrm{dm}}$    | Contribución efectiva de materia oscura                   |
 
-**Corrección respecto a `v0.2.0`:** se elimina $T_{\mu\nu}^{\mathrm{anth}}$ del tensor (separación de escalas, §1.2) y se elimina $T_{\mu\nu}^{\Lambda}$ del tensor (la energía oscura es geométrica, lado izquierdo).
+Se elimina $T_{\mu\nu}^{\mathrm{anth}}$ del tensor (separación de escalas, §1.2) y se elimina $T_{\mu\nu}^{\Lambda}$ del tensor (la energía oscura es geométrica, lado izquierdo).
 
 La conservación general se mantiene:
 
@@ -191,7 +202,9 @@ $$
 | $\sigma$           | Constante de Stefan–Boltzmann              | $5.670\times10^{-8}\ \mathrm{W\,m^{-2}\,K^{-4}}$ |
 | $Q_{\mathrm{anth}}$| Forzamiento antropogénico neto             | $0$–$3.5\ \mathrm{W\,m^{-2}}$      |
 
-**Símbolos previamente huérfanos, ahora activos:** $A_{\mathrm{alb}}$ entra en el solar absorbido; la difusividad térmica $\kappa$ y el factor de escala cosmológico $a_{\mathrm{cosm}}$, $H(t)$ quedan **reservados** y marcados como tales (Apéndice A), no listados como si fueran maquinaria activa.
+**Verificación numérica (§14.5):** con $T_s = 287.5\ \mathrm{K}$, el solar absorbido = $238.175\ \mathrm{W\,m^{-2}}$, la OLR = $236.316\ \mathrm{W\,m^{-2}}$, y para $E_{\mathrm{tech}}=0.15$, $\Theta=0.8$ el flujo neto = $3.953\ \mathrm{W\,m^{-2}}$ con $dT_s/dt = 0.3119\ \mathrm{K/año}$. Coincide con la implementación al cuarto decimal.
+
+**Símbolos previamente huérfanos, ahora activos:** $A_{\mathrm{alb}}$ entra en el solar absorbido; la difusividad térmica $\kappa$ y el factor de escala cosmológico $a_{\mathrm{cosm}}$, $H(t)$ quedan **reservados** (Apéndice A).
 
 ## 3.2 Forzamiento antropogénico y su retroacoplamiento
 
@@ -208,7 +221,7 @@ $$
 | $\mu$        | Efectividad de descarbonización por eficacia tecnológica       |
 | $E_{\mathrm{tech}}$ | Eficacia tecnológica (variable socio-técnica, §8)       |
 
-**Este es el primer canal de retroalimentación:** a mayor eficacia tecnológica, menor forzamiento antropogénico.
+**Este es el primer canal de retroalimentación:** a mayor eficacia tecnológica, menor forzamiento antropogénico. La figura 1 (§14.1) muestra su efecto observable: la temperatura del escenario regenerativo **se dobla hacia abajo** al crecer $E_{\mathrm{tech}}$.
 
 ## 3.3 Linealización y tiempo de respuesta
 
@@ -236,7 +249,7 @@ $$
 \frac{\partial I_{\nu}}{\partial s} = j_{\nu} - \alpha_{\nu}\, I_{\nu}
 $$
 
-**Corrección respecto a `v0.2.0`:** se elimina el término $f(F_{\mathrm{cosm}}, \rho_{\mathrm{dm}}, T, p)$. Los fotones no se acoplan directamente a la materia oscura; ese acoplamiento, si se desea explorar, vive **solo** en el Apéndice A como extensión especulativa.
+Se elimina el término $f(F_{\mathrm{cosm}}, \rho_{\mathrm{dm}}, T, p)$. Los fotones no se acoplan directamente a la materia oscura; ese acoplamiento, si se desea explorar, vive **solo** en el Apéndice A.
 
 ## 4.2 Generalización relativista (correcta y conservada)
 
@@ -253,13 +266,13 @@ $$
 | $\mathcal{J}_{\nu}$ | Emisión invariante                |
 | $\mathcal{A}_{\nu}$ | Absorción invariante              |
 
-Esta parte se conserva de `v0.2.0` por ser correcta: $\mathcal{I}_{\nu} = I_{\nu}/\nu^3$ es el invariante de Liouville apropiado y el transporte geodésico es la generalización correcta en relatividad general.
+$\mathcal{I}_{\nu} = I_{\nu}/\nu^3$ es el invariante de Liouville apropiado y el transporte geodésico es la generalización correcta en relatividad general.
 
 ---
 
 # 5. Puente Termodinámico — Definición de `X_ext` y `R_cap`
 
-**Esta sección es la novedad central de `v1.0.0`.** Cierra la brecha de acoplamiento: `X_ext` y `R_cap` dejan de ser diales libres y se derivan de flujos físicos del EBM, todo en unidades de `W/m²` normalizadas por una escala de referencia $F_{\mathrm{ref}}$.
+Cierra la brecha de acoplamiento: `X_ext` y `R_cap` dejan de ser diales libres y se derivan de flujos físicos del EBM, todo en `W/m²` normalizado por una escala de referencia $F_{\mathrm{ref}}$.
 
 ## 5.1 Externalidad como forzamiento antropogénico normalizado
 
@@ -267,7 +280,7 @@ $$
 X_{\mathrm{ext}}(t) = \frac{Q_{\mathrm{anth}}(t)}{F_{\mathrm{ref}}}
 $$
 
-donde $F_{\mathrm{ref}}$ es la escala de forzamiento compatible con un objetivo de política (p. ej. el forzamiento asociado a un objetivo térmico). Refinamiento opcional: añadir un término de producción de entropía irreversible $T_0\,\dot\Sigma_{\mathrm{irr}}$ (también en `W/m²`), declarado como extensión.
+donde $F_{\mathrm{ref}}$ es la escala de forzamiento compatible con un objetivo de política. Refinamiento opcional: añadir un término de producción de entropía irreversible $T_0\,\dot\Sigma_{\mathrm{irr}}$ (también en `W/m²`), declarado como extensión.
 
 ## 5.2 Capacidad regenerativa como flujo de restauración normalizado
 
@@ -280,6 +293,8 @@ $$
 | $\Phi_{\mathrm{bio}}$    | Flujo de sumidero biosférico/oceánico (forzamiento evitado/tiempo)|
 | $k_{\mathrm{tech}}\,E_{\mathrm{tech}}$ | Remoción/eficiencia ingenierizada (CDR, eficiencia)     |
 | $\Phi_{\mathrm{rad}}$    | Margen radiativo (capacidad de re-radiar, ligado a OLR y albedo)  |
+
+**Verificación (§14.5):** con $E_{\mathrm{tech}}=0.15$, $\Theta=0.8$: $Q_{\mathrm{anth}}=2.094$, $X_{\mathrm{ext}}=0.698$, $R_{\mathrm{cap}}=0.792$. Coincide al milésimo.
 
 **Segundo canal de retroalimentación:** la capacidad regenerativa **crece con la eficacia tecnológica**. Junto con §3.2 ($Q_{\mathrm{anth}}$ decrece con $E_{\mathrm{tech}}$), el sistema físico y el socio-técnico forman un bucle cerrado:
 
@@ -300,7 +315,7 @@ es la magnitud físicamente fundamentada que alimenta la puerta SICO.CA.
 
 # 6. Función de Autorización SICO.CA — con Retardo e Histéresis
 
-**Corrección respecto a `v0.2.0`:** la puerta anterior era instantánea y suponía autocorrección contemporánea (optimista). Las retroalimentaciones reales de insostenibilidad son **retardadas, con umbral y políticamente mediadas**. Esta versión modela explícitamente esa persistencia.
+La puerta de `v0.2.0` era instantánea y suponía autocorrección contemporánea (optimista). Las retroalimentaciones reales de insostenibilidad son **retardadas, con umbral y políticamente mediadas**. Esta versión modela explícitamente esa persistencia, validada en §14.3.
 
 ## 6.1 Puerta instantánea (línea base, conservada como referencia)
 
@@ -316,7 +331,7 @@ $$
 \frac{dD_{\mathrm{reg}}}{dt} = \Delta(t) - \rho\,D_{\mathrm{reg}}(t)
 $$
 
-con $\rho$ pequeño (recuperación lenta). Esto captura que el daño **no se corrige en el mismo instante** en que cesa la causa.
+con $\rho$ pequeño (recuperación lenta). Captura que el daño **no se corrige en el mismo instante** en que cesa la causa.
 
 ## 6.3 Componente con histéresis — latch de régimen
 
@@ -329,8 +344,6 @@ $$
 $$
 \frac{dh}{dt} = \frac{1}{\tau_h}\Big[\,\varsigma\big(D_{\mathrm{reg}} - \theta_{\mathrm{eff}}(h)\big) - h\,\Big], \qquad \varsigma(z) = \frac{1}{1 + e^{-k\,z}}
 $$
-
-La dependencia de $\theta_{\mathrm{eff}}$ de $h$ es lo que produce la **histéresis** (la recuperación exige sobre-corregir por debajo de un umbral más bajo).
 
 ## 6.4 Puerta efectiva
 
@@ -347,7 +360,28 @@ $$
 | $\xi$                 | Amplificación de la penalización cuando el latch está activo |
 | $k$                   | Pendiente del smoothstep                             |
 
-> Supuesto declarado explícitamente: este modelo asume que la pérdida de licencia operativa es **persistente y no autocorrectiva en el corto plazo**. Es una postura más conservadora —y más realista— que la puerta instantánea de `v0.2.0`.
+## 6.5 Corrección — el umbral de liberación es dinámico (snap), no $\theta_{\mathrm{off}}$ literal
+
+**Esta es una corrección importante de `v1.1.0`, confirmada por la simulación (§14.3).** Una lectura ingenua diría: «la liberación requiere que $D_{\mathrm{reg}}$ caiga por debajo de $\theta_{\mathrm{off}}$». Los datos lo contradicen.
+
+En el escenario de recuperación tardía, tras la intervención en el año 30:
+
+| Evento                                   | Año     | $D_{\mathrm{reg}}$ en ese punto |
+| :--------------------------------------- | :------ | :------------------------------ |
+| Latch liberado ($h < 0.5$)               | 73.01   | **0.396**                       |
+| Cruce de $\theta_{\mathrm{off}}=0.30$    | 78.56   | 0.300                           |
+
+La liberación **precede** al cruce de $\theta_{\mathrm{off}}$ en ~5.5 años, y ocurre con $D_{\mathrm{reg}}\approx 0.40$, **por encima** de $\theta_{\mathrm{off}}$. La razón es el propio umbral móvil: cuando $h$ empieza a bajar desde 1, $\theta_{\mathrm{eff}}=\theta_{\mathrm{off}}+(\theta_{\mathrm{on}}-\theta_{\mathrm{off}})(1-h)$ **sube**, lo que empuja el target hacia abajo y acelera la caída de $h$. Es una **retroalimentación positiva que hace que la liberación "chasquee"** (snap):
+
+```text
+inicio de liberación   : D_reg ≈ 0.68   (h se despega de 1)
+media liberación (h=0.5): D_reg ≈ 0.40   (año 73.01)
+liberación completa     : D_reg ≈ 0.30   (≈ theta_off, recuperación plena de χ, año 78.56)
+```
+
+**Formulación correcta:** la activación ocurre en $D_{\mathrm{reg}}\approx\theta_{\mathrm{on}}$; la liberación es un **proceso de chasquido entre $\theta_{\mathrm{on}}$ y $\theta_{\mathrm{off}}$**, con $\theta_{\mathrm{off}}$ marcando la recuperación **plena** de la licencia, no el instante de liberación. El umbral de liberación efectivo es una cantidad **dinámica** (~0.40–0.68), no $\theta_{\mathrm{off}}$.
+
+> Supuesto declarado: la pérdida de licencia operativa es **persistente, asimétrica y no autocorrectiva en el corto plazo**. La asimetría medida (§14.3): ~6 años para activar el latch; ~43 años desde la intervención para liberarlo. **La licencia SICO.CA es memoria con coste asimétrico.**
 
 ---
 
@@ -379,6 +413,7 @@ Para evitar colisiones simbólicas, las variables se separan por capa. **Todas l
 | $F_{\mathrm{ref}}$    | Escala de forzamiento de referencia  |
 | $D_{\mathrm{reg}}(t)$ | Deuda regenerativa acumulada         |
 | $h(t)$                | Estado de régimen (histéresis)       |
+| $\theta_{\mathrm{eff}}(t)$ | Umbral efectivo (móvil)         |
 | $\chi(t)$             | Factor de autorización SICO.CA       |
 
 ## 7.3 Variables socio-técnicas (acotadas en $[0,1]$)
@@ -394,16 +429,17 @@ Para evitar colisiones simbólicas, las variables se separan por capa. **Todas l
 | $U(t)$                  | Implementación tecnológica                   |
 | $A_{\mathrm{adopt}}(t)$ | Adopción base                                |
 | $S(t)$                  | Seguridad criptográfica                      |
+| $\Theta(t)$             | Actividad industrial (entrada; estado solo en la extensión experimental §14.4) |
 
 ## 7.4 Símbolos reservados (no activos en el modelo operativo)
 
-$a_{\mathrm{cosm}}(t)$, $H(t)$, $\Lambda$, $\rho_{\mathrm{dm}}$, $\kappa$ — reservados para extensiones físicas; ver Apéndice A. **No se usan en el cómputo de §10.**
+$a_{\mathrm{cosm}}(t)$, $H(t)$, $\Lambda$, $\rho_{\mathrm{dm}}$, $\kappa$ — reservados para extensiones físicas; ver Apéndice A.
 
 ---
 
 # 8. Sistema Socio-Técnico Acoplado (Acotado por Construcción)
 
-**Corrección respecto a `v0.2.0`:** las tres variables son ahora **acotadas en $[0,1]$ por construcción** (factores de saturación $(1-x)$ y decaimiento), eliminando la necesidad del recorte `np.clip` que enmascaraba el sobrepaso.
+Las tres variables son **acotadas en $[0,1]$ por construcción** (factores de saturación $(1-x)$ y decaimiento), eliminando la necesidad del recorte `np.clip` que enmascaraba el sobrepaso en `v0.2.0`.
 
 $$
 \begin{aligned}
@@ -419,13 +455,15 @@ $$
 | $dE_{\mathrm{tech}}/dt$ | La eficacia crece solo si SICO.CA autoriza ($\chi$), satura hacia 1; **reduce $Q_{\mathrm{anth}}$ y eleva $R_{\mathrm{cap}}$ (§3.2, §5.2).** |
 | $dD_{\mathrm{ID}}/dt$   | La identidad digital relaja hacia un objetivo logístico acotado en $[0,1]$ por construcción.  |
 
-El **vector de estado completo** del marco integrado es:
+**Nota de diseño sobre el gate (relevante para §14.4):** $\chi$ multiplica **solo el término de crecimiento primario** de $dE_{\mathrm{tech}}/dt$ y $dI_{\mathrm{EU}}/dt$. Los canales cruzados $\kappa_{DE}\,D_{\mathrm{ID}}$ y $\kappa_{EI}\,E_{\mathrm{tech}}$ **no están estrangulados** por la puerta. En consecuencia, una puerta cerrada ($\chi\approx 0$) no congela del todo a $E_{\mathrm{tech}}$: persiste una "fuga de momento institucional". Es una decisión de diseño legítima (la inercia digital persiste aunque se revoque la licencia primaria) que debe **declararse**, porque afecta a la forma de la separatriz (§14.4).
+
+El **vector de estado del marco integrado** es:
 
 $$
 \mathbf{y}(t) = \big[\,I_{\mathrm{EU}},\; E_{\mathrm{tech}},\; D_{\mathrm{ID}},\; T_s,\; D_{\mathrm{reg}},\; h\,\big]
 $$
 
-un sistema **físico + socio-técnico genuinamente acoplado**, no dos modelos yuxtapuestos.
+un sistema **físico + socio-técnico genuinamente acoplado**. La extensión experimental de §14.4 añade $\Theta$ como séptimo estado.
 
 ---
 
@@ -439,13 +477,13 @@ un sistema **físico + socio-técnico genuinamente acoplado**, no dos modelos yu
 | **$E_{\mathrm{tech}} \rightarrow R_{\mathrm{cap}} \uparrow$**               | **Sumideros ingenierizados (canal físico, §5.2)**               | **Eleva capacidad regenerativa**       |
 | **$\Delta \rightarrow D_{\mathrm{reg}} \rightarrow \chi \downarrow$**       | **Deuda regenerativa retardada (§6)**                           | **Pérdida persistente de licencia**    |
 
-Los tres últimos bucles **no existían en `v0.2.0`** como acoplamiento computacional.
+Los tres últimos bucles son los que la validación de §14 confirma como **operativos**.
 
 ---
 
 # 10. Implementación Numérica Reproducible
 
-**Corrección respecto a `v0.2.0`:** se sustituye el integrador de Euler explícito (primer orden, condicionalmente estable, con recorte que distorsionaba la dinámica) por `scipy.integrate.solve_ivp` (RK45, tolerancias explícitas). La deuda y las violaciones se **integran como estado**, no se registran en un bucle con error off-by-one. No hay recorte: las variables son acotadas por construcción.
+Se usa `scipy.integrate.solve_ivp` (RK45, tolerancias explícitas). La deuda y el latch se **integran como estado**. No hay recorte: las variables son acotadas por construcción.
 
 ## 10.1 Constantes físicas (FIJAS, no estimadas)
 
@@ -609,7 +647,6 @@ def run(p: Parameters, y0: np.ndarray, t_end: float,
 # 11. Escenario Determinista de Simulación
 
 ```python
-# Señales exógenas (deterministas y auditables)
 inputs = {
     "C":       lambda t: 0.50 + 0.10 * np.sin(0.02 * t),
     "R":       lambda t: 0.60 + 0.05 * t / 150.0,
@@ -617,14 +654,11 @@ inputs = {
     "U":       lambda t: 0.70 + 0.20 * (1.0 - np.exp(-0.03 * t)),
     "A_adopt": lambda t: 0.50 + 0.15 * (1.0 - np.exp(-0.025 * t)),
     "S":       lambda t: 0.80,
-    # actividad industrial: crece y luego se estabiliza
     "activity": lambda t: 0.80 + 0.20 * (1.0 - np.exp(-0.02 * t)),
 }
 
 p = Parameters()
-# Estado inicial: [I_EU, E_tech, D_ID, T_s, D_reg, h]
-y0 = np.array([0.20, 0.15, 0.10, 287.5, 0.0, 0.0])
-
+y0 = np.array([0.20, 0.15, 0.10, 287.5, 0.0, 0.0])  # [I_EU, E_tech, D_ID, T_s, D_reg, h]
 sol = run(p, y0, t_end=150.0, inputs=inputs)
 I_EU, E_tech, D_ID, T_s, D_reg, h = sol.y
 ```
@@ -633,7 +667,7 @@ I_EU, E_tech, D_ID, T_s, D_reg, h = sol.y
 
 # 12. Calibración e Identificabilidad
 
-**Corrección respecto a `v0.2.0`:** el protocolo anterior listaba fuentes de datos pero ninguna estrategia de identificación. Con ~20 parámetros y solo tres trayectorias agregadas observables, el sistema socio-técnico es **prácticamente no identificable** sin restricciones. Esta sección lo aborda de frente.
+Con ~20 parámetros y solo tres trayectorias agregadas observables, el sistema socio-técnico es **prácticamente no identificable** sin restricciones. Esta sección lo aborda de frente.
 
 ## 12.1 Jerarquía de fijación de parámetros
 
@@ -648,13 +682,13 @@ I_EU, E_tech, D_ID, T_s, D_reg, h = sol.y
 
 ## 12.2 Riesgo de equifinalidad
 
-Múltiples combinaciones de coeficientes socio-técnicos producen trayectorias indistinguibles (el problema clásico de la dinámica de sistemas). **No se debe prometer "todo coeficiente trazable" sin antes demostrar que es recuperable.** Estrategia mínima:
+Múltiples combinaciones de coeficientes socio-técnicos producen trayectorias indistinguibles. **No se debe prometer "todo coeficiente trazable" sin antes demostrar que es recuperable.** Estrategia mínima:
 
-1. **Identificabilidad estructural** — análisis de qué combinaciones de parámetros aparecen solo como producto (p. ej. $\eta_E$ y las elasticidades), reduciendo el espacio efectivo.
-2. **Identificabilidad práctica** — perfil de verosimilitud (profile likelihood) por parámetro; los planos indican no identificabilidad práctica.
-3. **Sensibilidad global** — índices de Sobol para ordenar parámetros por influencia sobre las salidas.
-4. **Inferencia bayesiana** — priors informativos + comprobaciones predictivas posteriores; reportar intervalos creíbles, no solo puntos.
-5. **Veredicto por parámetro** — cada coeficiente se etiqueta como `identificable`, `débilmente identificable` o `fijado-desde-prior` en el registro de auditoría.
+1. **Identificabilidad estructural** — qué combinaciones aparecen solo como producto (p. ej. $\eta_E$ y las elasticidades).
+2. **Identificabilidad práctica** — perfil de verosimilitud por parámetro.
+3. **Sensibilidad global** — índices de Sobol.
+4. **Inferencia bayesiana** — priors informativos + comprobaciones predictivas posteriores.
+5. **Veredicto por parámetro** — `identificable`, `débilmente identificable` o `fijado-desde-prior` en el registro de auditoría.
 
 ## 12.3 Registro de auditoría
 
@@ -668,8 +702,8 @@ def audit_record(p: Parameters, y0: np.ndarray, t_end: float,
         sort_keys=True,
     ).encode()
     return {
-        "model_id": "AMPEL-SICOCA-COUPLED-002",
-        "version": "1.0.0",
+        "model_id": "AMPEL-SICOCA-COUPLED-003",
+        "version": "1.1.0",
         "integrator": "scipy.solve_ivp / RK45",
         "rtol": 1e-8, "atol": 1e-10,
         "time_span": [0.0, t_end],
@@ -685,7 +719,7 @@ def audit_record(p: Parameters, y0: np.ndarray, t_end: float,
 
 ---
 
-# 13. Escenarios de Simulación
+# 13. Escenarios de Simulación (Catálogo)
 
 | Escenario                    | Mecanismo                                            | Resultado esperado                                 |
 | :--------------------------- | :--------------------------------------------------- | :------------------------------------------------- |
@@ -695,13 +729,114 @@ def audit_record(p: Parameters, y0: np.ndarray, t_end: float,
 | Estrés energético            | $Q_0$ elevado                                        | Penalización con retardo; recuperación lenta       |
 | Ciberataque                  | Caída abrupta de $S(t)$                              | Caída de $D_{\mathrm{ID}}$ y de eficacia           |
 | Fragmentación regulatoria    | $R(t), C(t)\downarrow$                               | Estancamiento de integración                       |
-| Recuperación tardía          | Tecnología mejora tras activar el latch              | **Histéresis:** se exige $D_{\mathrm{reg}}<\theta_{\mathrm{off}}$ antes de recuperar licencia |
+| Recuperación tardía          | Tecnología mejora tras activar el latch              | **Histéresis:** liberación tardía, asimétrica      |
 
-El escenario "Recuperación tardía" es el que **distingue `v1.0.0`**: demuestra que el modelo ya no supone autocorrección instantánea.
+Los escenarios Regenerativo, Trampa y Recuperación tardía se ejecutan y validan en §14.
 
 ---
 
-# 14. Condiciones de Validez
+# 14. Validación por Simulación
+
+Esta sección presenta las simulaciones que ejecutan el modelo de la especificación y confirman su comportamiento. Las figuras y los datos acompañan a este documento.
+
+**Aclaración metodológica.** Los tres escenarios (A regenerativo, B trampa, C recuperación tardía) usan el **modelo reducido** (estados $T_s$, $D_{\mathrm{reg}}$, $h$) con $E_{\mathrm{tech}}(t)$ y $\Theta(t)$ **prescritas** como funciones de escenario, para aislar la capa física + puerta. La sección de cuenca (§14.4) usa el **sistema completo con actividad endógena** (extensión experimental). Las verificaciones base (§14.5) reproducen los valores de la especificación al tercer–cuarto decimal.
+
+## 14.1 Trayectorias térmicas — el bucle cerrado es observable
+
+<img width="640" height="480" alt="fig_01_temperature_trajectories" src="https://github.com/user-attachments/assets/52ab74dd-c4b8-4af8-bf86-ddcdf3d68427" />
+
+
+*Figura 1. Temperatura superficial $T_s$ (EBM 0-D) para los escenarios regenerativo, trampa de insostenibilidad y recuperación tardía.*
+
+Lectura:
+
+- **Regenerativo (azul):** $T_s$ sube hasta un **pico de 288.62 K en el año 16.3** y luego **se dobla hacia abajo** hasta 288.44 K. Ese doblez es la **firma empírica del bucle cerrado**: al crecer $E_{\mathrm{tech}}$ (0.15 → 0.69), $Q_{\mathrm{anth}}$ cae y baja el equilibrio térmico. La curva que se dobla **emerge de la dinámica; no está impuesta**.
+- **Trampa (naranja):** subida monótona hasta una meseta de 289.27 K — el forzamiento nunca se alivia porque la tecnología queda estancada.
+- **Recuperación tardía (verde):** sigue la trampa hasta la intervención en el año 30, y luego **cae abruptamente** hacia ~288.24 K.
+
+> Salvaguarda de interpretación: los valores absolutos de $T_s$ (287–289 K) provienen de un EBM global de orden cero con $\epsilon$ ajustada. **La señal con sentido es el $\Delta T$ y la forma** (el doblez en regenerativo, la meseta en trampa), no el valor absoluto.
+
+## 14.2 Puerta de autorización — colapso vs recuperación tardía
+
+<img width="640" height="480" alt="fig_02_authorization_gate" src="https://github.com/user-attachments/assets/f13b92e8-f7c2-4f48-8fa3-fe65a00c19fc" />
+
+
+*Figura 2. Factor de autorización $\chi(t)$ de la puerta SICO.CA.*
+
+Lectura:
+
+- **Regenerativo (azul):** $\chi = 1$ durante toda la corrida. El sobrepaso $\Delta$ es nulo en todo momento: la operación se mantiene **dentro de la capacidad regenerativa** y la licencia nunca muerde.
+- **Trampa (naranja):** $\chi$ **colapsa a ~0 hacia el año 12** y queda bloqueado (valor final $\sim 5\times10^{-13}$).
+- **Recuperación tardía (verde):** $\chi$ colapsa junto con la trampa, permanece cerca de 0 hasta ~año 60, y luego **se recupera (snap)** cruzando 0.5 en el año 73 y alcanzando 0.99 hacia el año 150.
+
+## 14.3 Liberación histerética — la asimetría medida
+
+<img width="640" height="480" alt="fig_03_late_recovery_hysteresis" src="https://github.com/user-attachments/assets/40773f47-cc65-4b6b-baf6-fb47c64d4661" />
+
+
+*Figura 3. Recuperación tardía: deuda regenerativa $D_{\mathrm{reg}}$, latch $h$ y umbral efectivo $\theta_{\mathrm{eff}}$.*
+
+Lectura:
+
+- $D_{\mathrm{reg}}$ (azul) **alcanza su pico de 3.40 en la intervención** (año 30) y luego decae exponencialmente.
+- El latch $h$ (naranja) **se activa ($h\to 1$) hacia el año 6** y se mantiene hasta ~año 73.
+- El umbral efectivo $\theta_{\mathrm{eff}}$ (verde) baja de 0.8 a 0.3 cuando $h=1$, y **chasquea de vuelta a 0.8** en la liberación.
+
+**Eventos exactos (de los datos):**
+
+| Evento                                | Año     |
+| :------------------------------------ | :------ |
+| Latch activado ($h \ge 0.5$)          | 6.23    |
+| Intervención (actividad → 0.35)       | 30.02   |
+| Latch liberado ($h < 0.5$)            | 73.01   |
+| Cruce de $\theta_{\mathrm{off}}=0.30$ | 78.56   |
+
+**Asimetría:** ~6 años para perder la licencia; ~43 años desde la intervención para recuperarla. La liberación (año 73, $D_{\mathrm{reg}}\approx 0.40$) **precede** al cruce de $\theta_{\mathrm{off}}$ (año 78.56), confirmando la corrección de §6.5: $\theta_{\mathrm{off}}$ marca la recuperación plena, no el instante de liberación. **La licencia SICO.CA es memoria con coste asimétrico.**
+
+## 14.4 Sección de cuenca de atracción — la separatriz
+
+![Figura 4 — Sección de cuenca en el plano de actividad inicial y E_tech inicial, clasificada en regenerativo, marginal y trampa](fig_04_basin_section.png)
+
+*Figura 4. Sección 2D de la cuenca de atracción en el plano $(\Theta_0, E_{\mathrm{tech},0})$, clasificada por atractor: R = regenerativo, M = marginal, T = trampa.*
+
+Lectura: la separatriz separa **baja actividad + suficiente $E_{\mathrm{tech}}$ → R** de **alta actividad + baja $E_{\mathrm{tech}}$ → T**.
+
+**Declaraciones de diseño obligatorias:**
+
+1. **Actividad endógena = extensión experimental.** Para esta sección, $\Theta$ se promueve a **séptimo estado** con una ley de evolución propia. Esto **no es núcleo `v1.0.0`**, donde $\Theta(t)$ era una señal de entrada. Marcado explícitamente como experimental.
+2. **Sección, no cuenca completa.** La figura es una **sección 2D de una cuenca de dimensión superior**, tomada en $D_{\mathrm{reg},0}=0$, $h_0=0$. La misma pareja $(\Theta_0, E_{\mathrm{tech},0})$ puede caer en cuencas distintas según la **historia** de $D_{\mathrm{reg}}$ y $h$.
+3. **Clasificación por atractor, no por foto.** Se integra largo y se etiqueta el destino (R: $\chi\to 1$, $D_{\mathrm{reg}}$ baja, $h\to 0$; T: $\chi\to 0$, $h\to 1$), no por un corte temporal que clasificaría mal trayectorias marginales lentas.
+4. **Modo `faithful_v1`.** Se computó con `activity_gate_suppression = 0` y `gate_cross_channels = False`: la actividad no es suprimida por $\chi$, y los canales cruzados $\kappa_{DE},\kappa_{EI}$ no están estrangulados (§8). La fuga de momento institucional resultante puede dejar escapar trayectorias incluso con $\chi\approx 0$, y por tanto **modela la forma de la separatriz**.
+
+**Modos de diseño de gobernanza (análisis de sensibilidad estructural):**
+
+| Modo                          | Canales cruzados | Actividad bajo $\chi$ | Efecto esperado en la separatriz                          |
+| :---------------------------- | :--------------- | :-------------------- | :-------------------------------------------------------- |
+| `faithful_v1`                 | libres           | no                    | Línea base; fuga institucional permite escapes marginales |
+| `strict_license`              | estrangulados    | no                    | Trampa más profunda; menos escapes; separatriz se desplaza hacia menor actividad |
+| `activity_suppressed_by_chi`  | estrangulados    | sí                    | "Recuperación por contracción operativa"; muchas trampas se vuelven recuperables — **escenario de gobernanza, no físico** |
+
+## 14.5 Datos y reproducibilidad
+
+Conjuntos de datos adjuntos: `scenario_A_regenerative.csv`, `scenario_B_unsustainability_trap.csv`, `scenario_C_late_recovery.csv`, `basin_section.csv`.
+
+**Verificaciones base (coinciden con la especificación):**
+
+| Magnitud                    | Valor      | Esperado    |
+| :-------------------------- | :--------- | :---------- |
+| $Q_{\mathrm{anth}}$ (E=0.15, Θ=0.8) | 2.094 | 2.0940 |
+| $X_{\mathrm{ext}}$          | 0.698      | 0.6980      |
+| $R_{\mathrm{cap}}$          | 0.792      | 0.7917      |
+| Solar absorbido             | 238.175    | 238.1750    |
+| OLR ($T_s=287.5$)           | 236.316    | 236.3159    |
+| Flujo neto                  | 3.953      | 3.9531      |
+| $dT_s/dt$                   | 0.31187    | 0.311868    |
+
+Cada corrida debe registrar el `audit_record` de §12.3 (hash de parámetros, entradas y constantes físicas).
+
+---
+
+# 15. Condiciones de Validez
 
 1. **Consistencia dimensional** — todos los términos físicos en `W/m²`; el puente normaliza por $F_{\mathrm{ref}}$.
 2. **Separación de capas** — variables físicas, de puente y socio-técnicas no se confunden.
@@ -715,11 +850,9 @@ El escenario "Recuperación tardía" es el que **distingue `v1.0.0`**: demuestra
 
 ---
 
-# 15. Originalidad y Posicionamiento (Declaración Honesta)
+# 16. Originalidad y Posicionamiento (Declaración Honesta)
 
-Esta sección distingue lo estándar de lo propio, porque la credibilidad del marco depende de no reclamar autoridad prestada.
-
-## 15.1 Componentes estándar (no nuevos)
+## 16.1 Componentes estándar (no nuevos)
 
 | Componente                          | Linaje                                                  |
 | :---------------------------------- | :------------------------------------------------------ |
@@ -730,40 +863,40 @@ Esta sección distingue lo estándar de lo propio, porque la credibilidad del ma
 | Histéresis de dos umbrales          | Schmitt-trigger / modelos de relé en sistemas dinámicos |
 | Dinámica de sistemas acoplada       | Tradición Forrester                                     |
 
-## 15.2 La contribución (dónde vive lo propio)
+## 16.2 La contribución (dónde vive lo propio)
 
-1. **Puerta de admisibilidad multiplicativa, físicamente fundamentada.** Tratar la sostenibilidad no como término de la función objetivo sino como **condición dinámica de admisibilidad** $\chi(t)$, con `X_ext` y `R_cap` **derivadas de un balance energético** y no postuladas.
-2. **Bucle físico ↔ socio-técnico cerrado.** La eficacia tecnológica modifica el sistema físico que la autoriza ($E_{\mathrm{tech}}\to Q_{\mathrm{anth}}, R_{\mathrm{cap}}$).
-3. **Persistencia no autocorrectiva.** Retardo (deuda) + histéresis (latch) como postura modeladora explícita y conservadora.
-4. **Provenance como ciudadano de primera clase.** Hashing de parámetros, entradas y constantes; veredictos de identificabilidad — práctica ausente en la mayoría del modelado de política.
+1. **Puerta de admisibilidad multiplicativa, físicamente fundamentada.** Sostenibilidad como **condición dinámica de admisibilidad** $\chi(t)$, con `X_ext` y `R_cap` **derivadas de un balance energético**, no postuladas.
+2. **Bucle físico ↔ socio-técnico cerrado.** La eficacia tecnológica modifica el sistema físico que la autoriza — **validado** por el doblez térmico de la figura 1.
+3. **Persistencia no autocorrectiva con liberación asimétrica.** Retardo (deuda) + histéresis (latch con umbral móvil) — **validado** por la asimetría 6 vs 43 años (§14.3).
+4. **Provenance como ciudadano de primera clase.** Hashing de parámetros, entradas y constantes; veredictos de identificabilidad.
 
-La doctrina `SICO.CA` da identidad coherente al conjunto. El posicionamiento correcto **antepone el núcleo de gobernanza-dinámica** y trata la relatividad general como marco conceptual, no como fuente de autoridad física sobre operaciones industriales.
+La doctrina `SICO.CA` da identidad coherente al conjunto. El posicionamiento correcto **antepone el núcleo de gobernanza-dinámica** y trata la relatividad general como marco conceptual.
 
 ---
 
-# 16. Implicaciones Operativas
+# 17. Implicaciones Operativas
 
-1. **Licencia de operación computable.** La puerta $\chi$ como criterio formal de admisibilidad, cableada a KPIs reales: `X_ext` desde contabilidad de emisiones/energía, `R_cap` desde métricas de regeneración. Evaluable de forma continua por una organización o un regulador.
+1. **Licencia de operación computable.** La puerta $\chi$ como criterio formal de admisibilidad, cableada a KPIs reales: `X_ext` desde contabilidad de emisiones/energía, `R_cap` desde métricas de regeneración. La validación muestra que es una **licencia con memoria**: revocarla es rápido; reganarla, lento.
 2. **Enlace con ESG/CSRD.** El puente conecta con la maquinaria de reporte existente; más concreto que la mayoría de "marcos de sostenibilidad" porque es **una función con umbral**, no un eslogan.
-3. **Capa de auditoría como contribución independiente.** Registros de simulación reproducibles y anclados por hash son valiosos por sí mismos.
+3. **Mapa de cuencas como instrumento de política.** El resultado de mayor valor no es la separatriz en sí, sino **su sensibilidad paramétrica**: cuánta capacidad regenerativa ingenierizada ($k_{\mathrm{tech}}$) o descarbonización ($\mu$) hace falta para desplazar la separatriz de modo que un punto de partida realista deje de caer en la trampa. **Ese es el enunciado de política computable** que persigue el marco.
 
-**Límites declarados:** la capa física, si se sobreextiende, invita al rechazo (de ahí el Apéndice A separado); la calibración puede ser irresoluble al nivel agregado; la puerta codifica supuestos de retroalimentación que deben validarse empíricamente.
-
----
-
-# 17. Tesis Consolidada
-
-## 17.1 Español
-
-> **El Ampel Theoretical Framework define un espacio de estados físico y socio-técnico genuinamente acoplado, en el que las operaciones industriales solo son admisibles cuando sus externalidades —medidas como forzamiento físico neto sobre el balance energético— permanecen por debajo de una capacidad regenerativa medible. Un balance energético de orden cero proporciona la capa de límite físico operativa; la relatividad general fija el marco conceptual de conservación; un puente termodinámico convierte flujos físicos en externalidad y capacidad regenerativa; y una puerta de autorización con retardo e histéresis gobierna, de forma persistente y no autocorrectiva, la dinámica tecnológica, institucional e identitaria.**
-
-## 17.2 English
-
-> **The Ampel Theoretical Framework defines a genuinely coupled physical and socio-technical state-space in which industrial operations are admissible only when their externalities — measured as net physical forcing on the energy budget — remain below measurable regenerative capacity. A zero-dimensional energy-balance model provides the operational physical boundary layer; general relativity sets the conceptual conservation frame; a thermodynamic bridge converts physical fluxes into externality and regenerative capacity; and a lagged, hysteretic authorization gate governs technological, institutional, and identity-system dynamics in a persistent, non-self-correcting manner.**
+**Límites declarados:** la capa física, si se sobreextiende, invita al rechazo (de ahí el Apéndice A separado); la calibración puede ser irresoluble al nivel agregado; la actividad endógena de §14.4 es experimental; y los valores de $\epsilon, F_{\mathrm{ref}}, Q_0, \Phi_{\mathrm{bio}}, k_{\mathrm{tech}}$ son **marcadores plausibles, no datos**, hasta su fijación contra AR6 / Global Carbon Budget (§12.1).
 
 ---
 
-# 18. Fórmula Axial
+# 18. Tesis Consolidada
+
+## 18.1 Español
+
+> **El Ampel Theoretical Framework define un espacio de estados físico y socio-técnico genuinamente acoplado, en el que las operaciones industriales solo son admisibles cuando sus externalidades —medidas como forzamiento físico neto sobre el balance energético— permanecen por debajo de una capacidad regenerativa medible. La simulación confirma que el acoplamiento es operativo: la eficacia tecnológica dobla la trayectoria térmica, y la licencia de autorización exhibe memoria asimétrica —rápida de perder, lenta de recuperar—. Un balance energético de orden cero proporciona la capa de límite físico operativa; la relatividad general fija el marco conceptual de conservación; un puente termodinámico convierte flujos físicos en externalidad y capacidad regenerativa; y una puerta con retardo e histéresis gobierna, de forma persistente y no autocorrectiva, la dinámica tecnológica, institucional e identitaria.**
+
+## 18.2 English
+
+> **The Ampel Theoretical Framework defines a genuinely coupled physical and socio-technical state-space in which industrial operations are admissible only when their externalities — measured as net physical forcing on the energy budget — remain below measurable regenerative capacity. Simulation confirms the coupling is operative: technological efficacy bends the thermal trajectory, and the authorization license exhibits asymmetric memory — fast to lose, slow to regain. A zero-dimensional energy-balance model provides the operational physical boundary layer; general relativity sets the conceptual conservation frame; a thermodynamic bridge converts physical fluxes into externality and regenerative capacity; and a lagged, hysteretic gate governs technological, institutional, and identity-system dynamics in a persistent, non-self-correcting manner.**
+
+---
+
+# 19. Fórmula Axial
 
 ```text
 Physical boundary (operational):
@@ -782,15 +915,17 @@ Operational doctrine:
   SICO.CA = Sustainable Industrial Competitive Operations
             through Chained Algorithms
 
-Governance rule (persistent, non-self-correcting):
+Governance rule (persistent, non-self-correcting, asymmetric):
   Regenerative debt accumulates fast, recovers slow;
-  authorization latch releases only below a stricter threshold.
+  authorization latch releases via a moving threshold (snap),
+  with full recovery only at theta_off.
+  Measured asymmetry: ~6 yr to lose license, ~43 yr to regain.
 
-Closed loop:
-  E_tech reduces Q_anth and raises R_cap -> modifies the physics that authorizes it.
+Closed loop (validated):
+  E_tech reduces Q_anth and raises R_cap -> bends the thermal trajectory.
 
 Audit layer:
-  Every coefficient, input, constant and scenario
+  Every coefficient, input, constant, scenario and figure
   is traceable, reproducible, contestable — with identifiability verdicts.
 ```
 
@@ -798,32 +933,46 @@ Audit layer:
 
 # Apéndice A — Extensiones Especulativas (No Validadas, Fuera del Modelo Operativo)
 
-> **Advertencia:** este apéndice contiene acoplamientos físicos **no validados empíricamente**. Están separados deliberadamente para que su carácter especulativo no contamine el modelo operativo (§3–§10), que es físicamente estándar.
+> **Advertencia:** este apéndice contiene acoplamientos físicos **no validados empíricamente**. Están separados deliberadamente para que su carácter especulativo no contamine el modelo operativo (§3–§10, §14), que es físicamente estándar.
 
 A.1 **Acoplamiento cosmológico atmosférico.** Un término $Q_{\mathrm{cosm}}$ en el balance, con la condición de consistencia $Q_{\mathrm{cosm}}\to 0$ reduciéndose al EBM estándar. Variables reservadas: $a_{\mathrm{cosm}}(t), H(t), \Lambda$.
 
-A.2 **Acoplamiento radiación–materia oscura.** Un término $\mathcal{F}_{\mathrm{coupling}}(\rho_{\mathrm{dm}}, g_{\mu\nu})$ en el transporte radiativo. Sin evidencia de acoplamiento directo fotón–materia oscura; se mantiene aquí solo como hipótesis falsable.
+A.2 **Acoplamiento radiación–materia oscura.** Un término $\mathcal{F}_{\mathrm{coupling}}(\rho_{\mathrm{dm}}, g_{\mu\nu})$ en el transporte radiativo. Sin evidencia de acoplamiento directo fotón–materia oscura; hipótesis falsable.
 
 A.3 **Producción de entropía irreversible.** Refinamiento de `X_ext` con $T_0\,\dot\Sigma_{\mathrm{irr}}$. Físicamente motivado pero requiere instrumentación específica.
 
-Cualquier promoción de A.1–A.3 al modelo operativo exige superar las condiciones de validez de §14 (falsabilidad, reducción a modelos estándar).
+A.4 **Actividad industrial endógena.** La ley dinámica de $\Theta$ usada en §14.4 es ilustrativa. Una versión defendible requiere una teoría de la demanda económica y de su estrangulamiento por la licencia, todavía no formalizada.
+
+Cualquier promoción de A.1–A.4 al modelo operativo exige superar las condiciones de validez de §15.
 
 ---
 
-# Changelog — v1.0.0 (supersede v0.2.0)
+# Changelog
 
-- **Eliminado** el doble conteo de $\Lambda$: ahora geométrico (lado izquierdo) únicamente.
-- **Eliminado** $T_{\mu\nu}^{\mathrm{anth}}$ de las ecuaciones de campo; añadido **principio de separación de escalas** (§1.2).
-- **Eliminado** el acoplamiento radiación–materia oscura del transporte radiativo; transporte estándar retenido; acoplamientos especulativos movidos al **Apéndice A**.
-- **Añadido** el **EBM de orden cero** (§3) como reducción física operativa que carga el cálculo.
-- **NUEVO: puente termodinámico** (§5) que deriva `X_ext` y `R_cap` de flujos físicos — cierra la brecha de acoplamiento.
-- **Añadido** retroacoplamiento $E_{\mathrm{tech}}\to Q_{\mathrm{anth}}$ (descarbonización) y $E_{\mathrm{tech}}\to R_{\mathrm{cap}}$ (sumideros ingenierizados).
-- **Sustituida** la puerta binaria/instantánea por una puerta **con retardo (deuda regenerativa) e histéresis (dos umbrales)** (§6); supuesto de persistencia declarado.
-- **Dinámica socio-técnica acotada por construcción** (§8); eliminado el recorte `np.clip` que enmascaraba el sobrepaso.
-- **Sustituido** Euler explícito por `solve_ivp` (RK45); deuda/violaciones **integradas como estado**; corregido el error off-by-one.
-- **Todos los símbolos previamente huérfanos** ($A_{\mathrm{alb}}$, etc.) ahora activos; símbolos reservados etiquetados (§7.4).
-- **Añadida** sección de **identificabilidad y equifinalidad** (§12).
-- **Añadida** sección honesta de **originalidad y posicionamiento** (§15).
+## v1.1.0 (supersede v1.0.0)
+
+- **NUEVO §14 — Validación por Simulación** con cuatro figuras (trayectorias térmicas, puerta de autorización, liberación histerética, sección de cuenca) y cuatro conjuntos de datos.
+- **§6.5 — corrección del umbral de liberación dinámico (snap):** $\theta_{\mathrm{off}}$ no es el instante de liberación sino el umbral de **recuperación plena**; la liberación chasquea entre $\theta_{\mathrm{on}}$ y $\theta_{\mathrm{off}}$ por el umbral móvil $\theta_{\mathrm{eff}}(h)$. Confirmado: liberación en el año 73.01 con $D_{\mathrm{reg}}=0.396 > \theta_{\mathrm{off}}$.
+- **Asimetría cuantificada:** ~6 años para activar el latch; ~43 años desde la intervención para liberarlo.
+- **§14.4 — sección de cuenca documentada como extensión experimental** (actividad como séptimo estado endógeno); declaradas las salvaguardas de sección-2D-de-cuenca-superior y clasificación-por-atractor.
+- **§14.4 — modos de diseño de gobernanza** (`faithful_v1` / `strict_license` / `activity_suppressed_by_chi`) como primer análisis de sensibilidad estructural.
+- **§8 — declarada la nota de gate de canales cruzados** (fuga de momento institucional; canales $\kappa_{DE},\kappa_{EI}$ no estrangulados).
+- **Verificaciones base confirmadas** al tercer–cuarto decimal contra la especificación.
+- Renumeración: Validez §14→§15, Originalidad §15→§16, Implicaciones §16→§17, Tesis §17→§18, Axial §18→§19.
+
+## v1.0.0 (supersede v0.2.0)
+
+- Eliminado el doble conteo de $\Lambda$ (geométrico, lado izquierdo).
+- Eliminado $T_{\mu\nu}^{\mathrm{anth}}$ de las ecuaciones de campo; añadido el principio de separación de escalas.
+- Eliminado el acoplamiento radiación–materia oscura del transporte radiativo; especulativos al Apéndice A.
+- Añadido el EBM de orden cero como reducción física operativa.
+- Añadido el puente termodinámico que deriva `X_ext` y `R_cap` de flujos físicos.
+- Añadido retroacoplamiento $E_{\mathrm{tech}}\to Q_{\mathrm{anth}}$ y $E_{\mathrm{tech}}\to R_{\mathrm{cap}}$.
+- Puerta con retardo (deuda) e histéresis (dos umbrales) en lugar de la puerta instantánea.
+- Dinámica socio-técnica acotada por construcción; eliminado el recorte `np.clip`.
+- Euler explícito sustituido por `solve_ivp` (RK45); corregido el error off-by-one.
+- Símbolos huérfanos activados; símbolos reservados etiquetados.
+- Añadidas las secciones de identificabilidad y de originalidad.
 
 ---
 
